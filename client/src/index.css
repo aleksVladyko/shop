@@ -1,9 +1,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: "Manrope", sans-serif;
+@layer base {
+    html {
+        font-family: "Inter", system-ui, sans-serif;
+    }
+}
+@layer components {
+    .border_card_products {
+        @apply self-stretch h-0.5 bg-slate-200;
+    }
+    .btn_arrow {
+        @apply p-1 cursor-pointer  justify-start items-center gap-2 flex;
+    }
+    .img_arrow {
+        @apply w-6 h-6 relative  active:bg-[#798FFF] rounded-[16px];
+    }
+    .btn_primary {
+        @apply w-36 h-10 px-8 py-3.5 bg-blue active:bg-white rounded-lg justify-center items-center gap-2 inline-flex;
+    }
+    .text_btn_primary{
+        @apply text-white active:text-blue text-base/6 font-semibold
+    }
+    .btn_moredetails_view{
+        @apply h-10 px-8 py-3.5 bg-white active:bg-blue  rounded-lg border border-slate-200 justify-center items-center gap-2 inline-flex
+    }
+    .text_btn_moredetails{
+        @apply text-blue active:text-white text-base font-semibold leading-none
+    }
+    .text_span_pagination{
+        @apply text-slate-400  hover:text-[#798FFF] hover:scale-150  text-base  font-medium  leading-snug cursor-none
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --color-black: #14161F;
+    --color-blue: #798FFF;
+    --color-green: #27AE60;
+    --color-purple: #9B51E0;
+    --color-white: #FFFFFF;
+  }
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
