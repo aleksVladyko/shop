@@ -1,69 +1,25 @@
-// import arrow from "../../assets/arrow.svg";
-// import { useProducts } from "../../store";
-// const Pagination = () => {
-//     const { currentPage, setCurrentPage } = useProducts();
-//     const totalPages = useProducts((state) => state.data.totalPages);
-
-//     const handlePageChange = (page: number) => {
-//         if (setCurrentPage) setCurrentPage(page);
-//     };
-//     if (typeof currentPage === "undefined") {
-//         return null;
-//     }
-
-//     return (
-//         <nav className="justify-center items-center gap-4 flex">
-//             <button
-//                 className={`btn_arrow ${
-//                     currentPage === 1 ? "pointer-events-none" : null
-//                 }`}
-//                 onClick={() => handlePageChange(currentPage - 1)}
-//             >
-//                 <img src={arrow} className="img_arrow" />
-//             </button>
-//             <span className="text_span_pagination">{currentPage}</span>
-//             <button
-//                 className={`btn_arrow ${
-//                     currentPage === totalPages ? "pointer-events-none" : null
-//                 }`}
-//                 onClick={() => handlePageChange(currentPage + 1)}
-//             >
-//                 <img src={arrow} className="rotate-180 img_arrow" />
-//             </button>
-//         </nav>
-//     );
-// };
-// export default Pagination;
 import { useEffect } from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import arrow from "../../assets/arrow.svg";
 import { useProducts } from "../../store";
 
 const Pagination = () => {
     const { currentPage, setCurrentPage } = useProducts();
-    const totalPages = useProducts((state) => state.data.totalPages);
-    const location = useLocation();
-    const navigate = useNavigate();
 
-    const handlePageChange = (page: number) => {
-        if (setCurrentPage) {
-            setCurrentPage(page);
-        }
-    };
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const totalPages = useProducts((state) => state.data.totalPages);
 
     useEffect(() => {
-        const searchParams = new URLSearchParams(location.search);
-        const pages = searchParams.get("pages");
+        const page = Number(searchParams.get("page")) || 1;
+        setCurrentPage(page);
+    }, [searchParams, setCurrentPage]);
 
-        if (pages) {
-            setCurrentPage(Number(pages));
-        } else {
-            const newPage = 1;
-            setCurrentPage(newPage);
-            navigate(`${location.pathname}?pages=${newPage}`);
-            console.log(newPage);
-        }
-    }, [location, navigate, setCurrentPage]);
+    const handlePageChange = (page: number) => {
+        searchParams.set("page", page.toString());
+        setSearchParams(searchParams);
+        setCurrentPage(page);
+    };
 
     if (typeof currentPage === "undefined") {
         return null;
@@ -79,7 +35,6 @@ const Pagination = () => {
                 onClick={() => {
                     const newPage = currentPage - 1;
                     handlePageChange(newPage);
-                    navigate(`${location.pathname}?pages=${newPage}`);
                 }}
             >
                 <img
@@ -98,7 +53,6 @@ const Pagination = () => {
                 onClick={() => {
                     const newPage = currentPage + 1;
                     handlePageChange(newPage);
-                    navigate(`${location.pathname}?pages=${newPage}`);
                 }}
             >
                 <img
