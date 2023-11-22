@@ -1,8 +1,27 @@
 import IconSortMax from "../icons/IconSortMax";
 import IconSortMin from "../icons/IconSortMin";
-import { NavbarProps } from "../../utils/types";
+import { useSorted } from "../../store";
 
-const CustomButtonSorted = ({ handlePriceSort, minMaxSort }: NavbarProps) => {
+const CustomButtonSorted = () => {
+    const {
+        minMaxSort,
+        setMinMaxSort,
+        isPriceSorted,
+        setPriceSorted,
+        setPopularSorted,
+    } = useSorted();
+    const handlePriceSort = () => {
+        if (isPriceSorted) {
+            setPriceSorted(false);
+            setMinMaxSort(true);
+        } else {
+            setPriceSorted(true);
+            setPopularSorted(false);
+            setMinMaxSort(false);
+        }
+    };
+    console.log(isPriceSorted);
+
     return (
         <>
             <button

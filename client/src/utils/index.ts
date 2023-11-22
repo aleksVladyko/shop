@@ -41,3 +41,16 @@ export const getProductId = async (
         return undefined;
     }
 };
+
+export class ProductSorted {
+    static sortPopularProducts = (data: Product[] | undefined) => {
+        return data?.sort((a, b) => b.popularity - a.popularity);
+    };
+    static sortByMinPrice(data: Product[] | undefined) {
+        return data?.sort((a, b) => a.price - b.price);
+    }
+
+    static sortByMaxPrice(data: Product[] | undefined) {
+        return data?.sort((a, b) => b.price - a.price);
+    }
+}

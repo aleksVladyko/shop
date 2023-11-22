@@ -53,6 +53,8 @@ export const useProducts = createWithEqualityFn<UseProducts>()(
 type SortedState = {
     isPopularSorted: boolean;
     isPriceSorted: boolean;
+    minMaxSort: boolean;
+    setMinMaxSort: (value: boolean) => void;
     setPopularSorted: (value: boolean) => void;
     setPriceSorted: (value: boolean) => void;
 };
@@ -62,10 +64,12 @@ export const useSorted = create<SortedState>(
         {
             isPopularSorted: false,
             isPriceSorted: false,
+            minMaxSort: false,
         },
         (set) => ({
             setPopularSorted: (value) => set({ isPopularSorted: value }),
             setPriceSorted: (value) => set({ isPriceSorted: value }),
+            setMinMaxSort: (value) => set({ minMaxSort: value }),
         })
     )
 );

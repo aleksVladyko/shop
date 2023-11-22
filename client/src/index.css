@@ -8,6 +8,12 @@
 @layer base {
     html {
         font-family: "Inter", system-ui, sans-serif;
+        height: 100vh;
+    }
+    body {
+        height: inherit;
+        display: block;
+        box-sizing: border-box;
     }
 }
 @layer components {
@@ -23,17 +29,17 @@
     .btn_primary {
         @apply w-36 h-10 px-8 py-3.5 bg-blue active:bg-white rounded-lg justify-center items-center gap-2 inline-flex;
     }
-    .text_btn_primary{
-        @apply text-white active:text-blue text-base/6 font-semibold
+    .text_btn_primary {
+        @apply text-white active:text-blue text-base/6 font-semibold;
     }
-    .btn_moredetails_view{
-        @apply h-10 px-8 py-3.5 bg-white active:bg-blue  rounded-lg border border-slate-200 justify-center items-center gap-2 inline-flex
+    .btn_moredetails_view {
+        @apply h-10 px-8 py-3.5 bg-white active:bg-blue  rounded-lg border border-slate-200 justify-center items-center gap-2 inline-flex;
     }
-    .text_btn_moredetails{
-        @apply text-blue active:text-white text-base font-semibold leading-none
+    .text_btn_moredetails {
+        @apply text-blue active:text-white text-base font-semibold leading-none;
     }
-    .text_span_pagination{
-        @apply text-slate-400  hover:text-[#798FFF] hover:scale-150  text-base  font-medium  leading-snug cursor-none
+    .text_span_pagination {
+        @apply text-slate-400  hover:text-[#798FFF] hover:scale-150  text-base  font-medium  leading-snug cursor-none;
     }
 }
 * {
@@ -41,15 +47,14 @@
     padding: 0;
 }
 :root {
-    --color-black: #14161F;
-    --color-blue: #798FFF;
-    --color-green: #27AE60;
-    --color-purple: #9B51E0;
-    --color-white: #FFFFFF;
-  }
+    --color-black: #14161f;
+    --color-blue: #798fff;
+    --color-green: #27ae60;
+    --color-purple: #9b51e0;
+    --color-white: #ffffff;
+}
 #root {
     display: flex;
     justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+    align-items: flex-start;
 }

@@ -1,6 +1,19 @@
-import { NavbarProps } from "../../utils/types";
+import { useSorted } from "../../store";
 
-const CustomButtonPopular = ({ handlePopularSort }: NavbarProps) => {
+const CustomButtonPopular = () => {
+    const { isPopularSorted, setPopularSorted, setMinMaxSort, setPriceSorted } =
+        useSorted();
+
+    const handlePopularSort = () => {
+        if (isPopularSorted) {
+            setPopularSorted(false);
+        } else {
+            setPopularSorted(true);
+            setMinMaxSort(false);
+            setPriceSorted(false);
+        }
+    };
+
     return (
         <button
             className="h-8 px-1 py-[5px] justify-center items-center gap-2 flex text-text-gray focus:text-blue"
