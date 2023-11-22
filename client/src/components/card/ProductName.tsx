@@ -1,6 +1,6 @@
 import { Props } from "../../utils/types";
 
-const ProductName = ({name}: Props) => {
+const ProductName = ({ name }: Props) => {
     return (
         <h3
             className={`self-stretch text-black ${

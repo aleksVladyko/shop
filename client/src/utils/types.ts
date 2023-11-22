@@ -1,4 +1,8 @@
-export type Props = {
+// type Partial<T> = {
+//     [P in keyof T]?: T[P];
+//   };
+export type Props  = {
+    product?: Product
     colors?: string[];
     name?: string;
     price?: number;
@@ -22,10 +26,4 @@ export type Product = {
 export type Products = {
     products: Product[];
 };
-export type NavbarProps = {
-    handlePriceSort?: () => void;
-    handlePopularSort?: () => void;
-    minMaxSort?: boolean;
-        currentPage?: number
-        setCurrentPage?: React.Dispatch<React.SetStateAction<number>>
-};
+

@@ -12,7 +12,7 @@ const ProductDetails = () => {
     const { id } = useParams();
     const { data } = useProducts();
     const products = data.products;
-    const product = products.find((product) => product.id === Number(id));
+    const product = products?.find((product) => product.id === Number(id));
 
     return (
         <section className=" px-10 py-8 flex-col justify-start items-start gap-8 inline-flex">

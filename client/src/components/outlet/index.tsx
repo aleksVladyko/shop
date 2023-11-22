@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Products from "../../pages/Products";
 
 export default function Index() {
     return (
@@ -13,7 +12,12 @@ export default function Index() {
                 </a>
                 .
             </p>
-        <Link to={"/products"} className="ring ring-neutral-500 rounded hover:bg-indigo-300">Go shop </Link>
+            <Link
+                to={"/products"}
+                className="ring ring-neutral-500 rounded hover:bg-indigo-300"
+            >
+                Go shop{" "}
+            </Link>
         </div>
     );
 }

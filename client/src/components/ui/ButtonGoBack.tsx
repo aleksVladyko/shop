@@ -10,7 +10,11 @@ const ButtonGoBack = () => {
                     transition duration-1000 ease-in-out hover:bg-indigo-300"
             onClick={() => navigate(-1)}
         >
-            <img loading="lazy" src={arrow} className="w-6 h-6 relative" />
+            <img
+                loading="lazy"
+                src={arrow}
+                className="w-6 h-6 relative"
+            />
             <span className="text-text-gray hover:text-white text-base font-medium ">
                 Назад
             </span>
