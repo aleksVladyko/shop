@@ -7,7 +7,8 @@ import { create } from "zustand";
 
 export type UseProducts = {
     data: {
-        products: Product[];
+        // products: Product[];
+        products: Array<Product>;
         totalPages?: number;
     };
     currentPage: number;

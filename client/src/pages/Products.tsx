@@ -47,24 +47,26 @@ const Products = () => {
         }
     });
 
+    if (!Array.isArray(products)) {
+        return <div>No products available.</div>;
+    }
+
     return (
-        products && (
-            <section className="w-full px-10 py-8 flex-col justify-start items-start gap-8 inline-flex">
-                <Navbar />
-                <div className="self-stretch justify-start items-start gap-8 inline-flex">
-                    <FilterColor />
-                    <div className="grow shrink basis-0 flex-col justify-start items-start gap-4 inline-flex h-[764px] overflow-y-auto">
-                        {products &&
-                            products.map((product: Product) => (
-                                <CardProduct
-                                    key={product.id}
-                                    product={product}
-                                />
-                            ))}
-                    </div>
+        <section className="w-full px-10 py-8 flex-col justify-start items-start gap-8 inline-flex">
+            <Navbar />
+            <div className="self-stretch justify-start items-start gap-8 inline-flex">
+                <FilterColor />
+                <div className="grow shrink basis-0 flex-col justify-start items-start gap-4 inline-flex h-[764px] overflow-y-auto">
+                    {products &&
+                        products.map((product: Product) => (
+                            <CardProduct
+                                key={product.id}
+                                product={product}
+                            />
+                        ))}
                 </div>
-            </section>
-        )
+            </div>
+        </section>
     );
 };
 export default Products;

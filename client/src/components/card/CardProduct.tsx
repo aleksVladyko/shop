@@ -10,8 +10,7 @@ const CardProduct = ({ product }: Props) => {
     return (
         product && (
             <>
-                <div className="border_card_products" />
-                <article className="self-stretch bg-white justify-start items-start gap-8 inline-flex">
+                <article className="border_card_products">
                     <ProductImage image={product.image} />
                     <div className="grow shrink basis-0 self-stretch py-4 justify-start items-start gap-8 flex">
                         <div className="grow shrink basis-0 self-stretch flex-col justify-between items-start inline-flex">
@@ -27,7 +26,6 @@ const CardProduct = ({ product }: Props) => {
                         </div>
                     </div>
                 </article>
-                <div className="border_card_products" />
             </>
         )
     );

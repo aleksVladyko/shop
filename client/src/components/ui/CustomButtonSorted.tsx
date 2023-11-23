@@ -20,7 +20,6 @@ const CustomButtonSorted = () => {
             setMinMaxSort(false);
         }
     };
-    console.log(isPriceSorted);
 
     return (
         <>

@@ -18,7 +18,7 @@
 }
 @layer components {
     .border_card_products {
-        @apply self-stretch h-0.5 bg-slate-200;
+        @apply self-stretch bg-white justify-start items-start gap-8 inline-flex border-2 border-x-transparent border-y-gray py-4;
     }
     .btn_arrow {
         @apply p-1 cursor-pointer  justify-start items-center gap-2 flex;
@@ -39,7 +39,7 @@
         @apply text-blue active:text-white text-base font-semibold leading-none;
     }
     .text_span_pagination {
-        @apply text-slate-400  hover:text-[#798FFF] hover:scale-150  text-base  font-medium  leading-snug cursor-none;
+        @apply text-slate-500 hover:text-blue hover:scale-150  text-base  font-medium  leading-snug cursor-none;
     }
 }
 * {
