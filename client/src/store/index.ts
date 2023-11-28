@@ -85,18 +85,3 @@ export const useSorted = create<SortedState>(
     )
 );
 
-// type Filtered = {
-//     filter: string;
-//     visible: boolean;
-//     setFilter: (value: string) => void;
-// };
-
-// export const useFiltered = create<Filtered>((set) => ({
-//     filter: "",
-//     visible: false,
-//     setFilter: (value) =>
-//         set({
-//             filter: value,
-//             visible: true,
-//         }),
-// }));

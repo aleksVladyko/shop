@@ -50,15 +50,6 @@ const Products = () => {
                 return state.data.products;
         }
     });
-    // function filterProducts(products, color) {
-    //     return products.filter((product) => {
-    //         const hasColor = product.colors.includes(color);
-
-    //         return hasColor;
-    //     });
-    // }
-    //     const filteredProducts = ProductSorted.filterColorProduct(products, getColor);
-    // console.log(filteredProducts);
 
     if (!Array.isArray(products)) {
         return <div>No products available.</div>;
