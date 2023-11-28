@@ -55,6 +55,9 @@ type SortedState = {
     isPopularSorted: boolean;
     isPriceSorted: boolean;
     minMaxSort: boolean;
+    filter: string;
+    visible: boolean;
+    setFilter: (value: string) => void;
     setMinMaxSort: (value: boolean) => void;
     setPopularSorted: (value: boolean) => void;
     setPriceSorted: (value: boolean) => void;
@@ -66,24 +69,34 @@ export const useSorted = create<SortedState>(
             isPopularSorted: false,
             isPriceSorted: false,
             minMaxSort: false,
+            filter: "",
+            visible: false,
         },
         (set) => ({
             setPopularSorted: (value) => set({ isPopularSorted: value }),
             setPriceSorted: (value) => set({ isPriceSorted: value }),
             setMinMaxSort: (value) => set({ minMaxSort: value }),
+            setFilter: (value) =>
+                set({
+                    filter: value,
+                    visible: value !== "" ? true : false,
+                }),
         })
     )
 );
 
-type TFiltered = {
-    filter: string;
-    setFilter: (value: string) => void;
-};
+// type Filtered = {
+//     filter: string;
+//     visible: boolean;
+//     setFilter: (value: string) => void;
+// };
 
-export const useFiltered = create<TFiltered>((set) => ({
-    filter: "",
-    setFilter: (value) =>
-        set({
-            filter: value,
-        }),
-}));
+// export const useFiltered = create<Filtered>((set) => ({
+//     filter: "",
+//     visible: false,
+//     setFilter: (value) =>
+//         set({
+//             filter: value,
+//             visible: true,
+//         }),
+// }));

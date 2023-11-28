@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import CardProduct from "../components/card/CardProduct";
 import FilterColor from "../components/filtered/FilterColor";
 import Navbar from "../components/navbar/Navbar";
-import { useFiltered, useProducts, useSorted } from "../store";
+import { useProducts, useSorted } from "../store";
 import { ProductSorted } from "../utils";
 import { Product } from "../utils/types";
 
@@ -24,8 +24,7 @@ const Products = () => {
         }
     }, [pages, pageUrl]);
 
-    const filterProducts = useFiltered((state) => state.filter);
-    console.log(filterProducts);
+    const getColor = useSorted((state) => state.filter);
 
     // делаем сортировку
     const isPopularSorted = useSorted((state) => state.isPopularSorted);
@@ -42,10 +41,24 @@ const Products = () => {
 
             case minmax:
                 return ProductSorted.sortByMinPrice(state.data.products);
+            case getColor !== "":
+                return ProductSorted.filterColorProduct(
+                    state.data.products,
+                    getColor
+                );
             default:
                 return state.data.products;
         }
     });
+    // function filterProducts(products, color) {
+    //     return products.filter((product) => {
+    //         const hasColor = product.colors.includes(color);
+
+    //         return hasColor;
+    //     });
+    // }
+    //     const filteredProducts = ProductSorted.filterColorProduct(products, getColor);
+    // console.log(filteredProducts);
 
     if (!Array.isArray(products)) {
         return <div>No products available.</div>;

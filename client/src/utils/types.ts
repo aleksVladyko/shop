@@ -11,7 +11,7 @@ export type Props  = {
     id?: number | string;
 };
 
-type ColorArray = string[];
+export type ColorArray = string[];
 
 export type Product = {
     id: number;
@@ -27,3 +27,8 @@ export type Products = {
     products: Product[];
 };
 
+export type Colors = {
+    color: string;
+    name: string;
+    visible?: boolean;
+};

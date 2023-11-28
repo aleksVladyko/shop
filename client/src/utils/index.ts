@@ -53,4 +53,10 @@ export class ProductSorted {
     static sortByMaxPrice(data: Product[] | undefined) {
         return data?.sort((a, b) => b.price - a.price);
     }
+    static filterColorProduct(data: Product[] | undefined, color: string) {
+        return data?.filter((product) => {
+            const hasColor = product.colors.includes(color);
+            return hasColor;
+        });
+    }
 }
