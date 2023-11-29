@@ -7,13 +7,11 @@ import { create } from "zustand";
 
 export type UseProducts = {
     data: {
-        // products: Product[];
         products: Array<Product>;
         totalPages?: number;
     };
     currentPage: number;
     setCurrentPage: (value: number) => void;
-    product: Product;
     loading: boolean;
     getAllProducts: (limit: number, page: number) => Promise<void>;
 };
@@ -23,15 +21,6 @@ export const useProducts = createWithEqualityFn<UseProducts>()(
         (set) => ({
             data: {
                 products: [],
-            },
-            product: {
-                id: 0,
-                name: "",
-                price: 0,
-                image: "",
-                colors: [],
-                popularity: 0,
-                desc: "",
             },
             currentPage: 1,
             loading: false,
@@ -84,4 +73,3 @@ export const useSorted = create<SortedState>(
         })
     )
 );
-

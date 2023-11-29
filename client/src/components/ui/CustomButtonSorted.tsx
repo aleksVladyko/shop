@@ -9,6 +9,7 @@ const CustomButtonSorted = () => {
         isPriceSorted,
         setPriceSorted,
         setPopularSorted,
+        setFilter,
     } = useSorted();
     const handlePriceSort = () => {
         if (isPriceSorted) {
@@ -18,6 +19,7 @@ const CustomButtonSorted = () => {
             setPriceSorted(true);
             setPopularSorted(false);
             setMinMaxSort(false);
+            setFilter("");
         }
     };
 

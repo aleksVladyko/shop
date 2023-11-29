@@ -1,8 +1,13 @@
 import { useSorted } from "../../store";
 
 const CustomButtonPopular = () => {
-    const { isPopularSorted, setPopularSorted, setMinMaxSort, setPriceSorted } =
-        useSorted();
+    const {
+        isPopularSorted,
+        setPopularSorted,
+        setMinMaxSort,
+        setPriceSorted,
+        setFilter,
+    } = useSorted();
 
     const handlePopularSort = () => {
         if (isPopularSorted) {
@@ -11,6 +16,7 @@ const CustomButtonPopular = () => {
             setPopularSorted(true);
             setMinMaxSort(false);
             setPriceSorted(false);
+            setFilter("");
         }
     };
 

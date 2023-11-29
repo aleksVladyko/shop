@@ -50,11 +50,12 @@ const Products = () => {
                 return state.data.products;
         }
     });
-
+    
     if (!Array.isArray(products)) {
         return <div>No products available.</div>;
     }
-
+    
+    console.log(products);
     return (
         <section className="w-full px-10 py-8 flex-col justify-start items-start gap-8 inline-flex">
             <Navbar />

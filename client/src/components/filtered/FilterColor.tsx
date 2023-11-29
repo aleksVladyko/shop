@@ -11,12 +11,26 @@ const FilterColor = () => {
         { color: "purple", name: "Фиолетовый" },
         { color: "white", name: "Белый" },
     ];
-    const { filter, visible, setFilter } = useSorted();
+    const {
+        filter,
+        visible,
+        setFilter,
+        setPopularSorted,
+        setPriceSorted,
+        setMinMaxSort,
+    } = useSorted();
 
     console.log(filter, visible);
 
     const toggleVisibility = (index: number) => {
-        setFilter([...colors][index].color);
+        if (filter === colors[index].color) {
+            setFilter(""); 
+        } else {
+            setFilter(colors[index].color); 
+            setPopularSorted(false);
+            setPriceSorted(false);
+            setMinMaxSort(false);
+        }
     };
     const resetParameters = () => {
         setFilter("");
