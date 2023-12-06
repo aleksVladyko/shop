@@ -6,6 +6,7 @@ import Navbar from "../components/navbar/Navbar";
 import { useProducts, useSorted } from "../store";
 import { ProductSorted } from "../utils";
 import { Product } from "../utils/types";
+import ErrorPages from "./ErrorPages";
 
 const Products = () => {
     const getAllProducts = useProducts((state) => state.getAllProducts);
@@ -50,12 +51,10 @@ const Products = () => {
                 return state.data.products;
         }
     });
-    
+
     if (!Array.isArray(products)) {
-        return <div>No products available.</div>;
+        return <ErrorPages />;
     }
-    
-    console.log(products);
     return (
         <section className="w-full px-10 py-8 flex-col justify-start items-start gap-8 inline-flex">
             <Navbar />

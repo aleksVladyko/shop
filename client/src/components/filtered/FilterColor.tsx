@@ -24,9 +24,9 @@ const FilterColor = () => {
 
     const toggleVisibility = (index: number) => {
         if (filter === colors[index].color) {
-            setFilter(""); 
+            setFilter("");
         } else {
-            setFilter(colors[index].color); 
+            setFilter(colors[index].color);
             setPopularSorted(false);
             setPriceSorted(false);
             setMinMaxSort(false);
@@ -46,7 +46,6 @@ const FilterColor = () => {
             <fieldset className="flex flex-col justify-start items-start relative right-2">
                 {colors.map((colorObj: Colors, index: number) => (
                     <label
-                        onClick={() => toggleVisibility(index)}
                         key={index}
                         className="w-96 h-10 p-2 self-stretch justify-start items-center gap-3 flex hover:bg-gray rounded-[32px] relative"
                     >

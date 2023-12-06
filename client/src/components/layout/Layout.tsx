@@ -1,4 +1,5 @@
 import HeadLayout from "./HeadLayout";
+
 const Layout = () => {
     return (
         <>

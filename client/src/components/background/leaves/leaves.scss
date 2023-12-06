@@ -1,0 +1,87 @@
+// .falling-leaf {
+//     --size: 1vw;
+//     width: calc(var(--size) * 5);
+//     height: calc(var(--size) * 5);
+//     position: absolute;
+//     top: -10vh;
+// }
+
+// @keyframes fallLeaves {
+//     0% {
+//         opacity: 1;
+//         transform: translate3d(var(--left-ini), 0, 0);
+//     }
+
+//     100% {
+//         opacity: 0.7;
+//         transform: perspective(50vh) translate3d(var(--left-end), 110vh, 100px)
+//             rotate3d(
+//                 var(--rotateXYZ),
+//                 var(--rotateXYZ),
+//                 var(--rotateXYZ),
+//                 var(--rotate)
+//             );
+//     }
+// }
+
+// @for $i from 1 through 30 { /*<-- значение leavesCount устанавливаем в css цикле */
+//     .falling-leaf:nth-child(#{$i}) {
+//         --size: #{random(6) * 0.2}vw; /* randomize size! */
+//         --rotate: #{random() * 360 - 180}grad; /* randomize rotate! */
+//         --rotateXYZ: #{random() * 2 - 1}; /* randomize rotate x y z! */
+//         --left-ini: #{random(20) - 10}vw; /* random initial translation */
+//         --left-end: #{random(20) - 10}vw; /* random final translation */
+//         left: #{random(100)}vw;
+//         animation: fallLeaves #{6 + random(10)}s linear infinite;
+//         animation-delay: -#{random(10)}s;
+//     }
+// }
+@mixin mobile {
+    @media (max-width: 481px) {
+      @content;
+    }
+  }
+  
+  .falling-leaf {
+    --size: 1vw;
+    width: calc(var(--size) * 5);
+    height: calc(var(--size) * 5);
+    position: fixed;
+    top: -10vh;
+  }
+  
+  @keyframes fallLeaves {
+    0% {
+      opacity: 1;
+      transform: translate3d(var(--left-ini), 0, 0);
+    }
+  
+    100% {
+      opacity: 0.7;
+      transform: perspective(50vh) translate3d(var(--left-end), 110vh, 100px)
+        rotate3d(
+          var(--rotateXYZ),
+          var(--rotateXYZ),
+          var(--rotateXYZ),
+          var(--rotate)
+        );
+    }
+  }
+  
+  @for $i from 1 through 40 {
+    /*<-- значение на 1 больше чем длинна массива */
+    .falling-leaf:nth-child(#{$i}) {
+      @include mobile {
+        --size: 3vw;
+      }
+      --size: #{random(5) * 0.3}vw; /* randomize size! */
+      --rotate: #{random() * 360 - 180}grad; /* randomize rotate! */
+      --rotateXYZ: #{random() * 2 - 1}; /* randomize rotate x y z! */
+      --left-ini: #{random(20) - 10}vw; /* random initial translation */
+      --left-end: #{random(20) - 10}vw; /* random final translation */
+      left: #{random(100)}vw;
+      animation: fallLeaves #{10 + random(10)}s linear infinite;
+      animation-delay: -#{random(10)}s;
+    }
+  }
+  

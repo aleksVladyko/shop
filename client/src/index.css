@@ -41,6 +41,9 @@
     .text_span_pagination {
         @apply text-slate-500 hover:text-blue hover:scale-150  text-base  font-medium  leading-snug cursor-none;
     }
+    .btn_background {
+        @apply select-none rounded-lg border border-slate-600 py-3 px-6 text-center align-middle text-xl font-normal uppercase text-black transition-all hover:opacity-75  active:bg-red-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none;
+    }
 }
 * {
     margin: 0;
@@ -54,6 +57,7 @@
     --color-white: #ffffff;
 }
 #root {
+    min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;

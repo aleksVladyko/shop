@@ -3,7 +3,6 @@ import { getAllProducts } from "../utils";
 import { createWithEqualityFn } from "zustand/traditional";
 import { Product } from "../utils/types";
 import { combine, persist } from "zustand/middleware";
-import { create } from "zustand";
 
 export type UseProducts = {
     data: {
@@ -52,7 +51,7 @@ type SortedState = {
     setPriceSorted: (value: boolean) => void;
 };
 
-export const useSorted = create<SortedState>(
+export const useSorted = createWithEqualityFn<SortedState>()(
     combine(
         {
             isPopularSorted: false,
